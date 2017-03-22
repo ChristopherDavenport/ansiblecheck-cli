@@ -14,7 +14,9 @@ before_script:
   - export PATH=$HOME/.local/bin:$PATH
 
 script:
-  - cargo test -- --verbose
+  - |
+    cargo test --no-default-features &&
+    cargo test --features "yaml unstable"
 addons:
   apt:
     packages:
